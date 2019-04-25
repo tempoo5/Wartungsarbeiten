@@ -18,18 +18,13 @@ public class Main extends JavaPlugin implements Listener {
 		
 		getCommand("wartung").setExecutor(this);
 		
-		Bukkit.getServer().getPluginManager().registerEvents(this, this);
-		 
-		
+		Bukkit.getServer().getPluginManager().registerEvents(this, this);				
 	}
 
 	@EventHandler
 	public void LogIn(PlayerLoginEvent e) {
-		if(e.getPlayer().isOp() == false) {
-			e.disallow(null, "§4WARTUNGSARBEITEN \n §cmomentan wird der Server gewartet");
 		if(e.getPlayer().isOp() == false && _wartung) {
-			e.disallow(null, "§4WARTUNGSARBEITEN \n §cmomentan wird der Server gewartet");
-		}
+			e.disallow(null, "ï¿½4WARTUNGSARBEITEN \n ï¿½cmomentan wird der Server gewartet");
 		}
 	}
 
@@ -39,11 +34,10 @@ public class Main extends JavaPlugin implements Listener {
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
 			if(player.isOp())
-				if(player.isOp())
-				{
-					 _wartung = !_wartung;
-					 player.sendMessage("Wartungsstatus: " + _wartung);
-				}
+			{
+					_wartung = !_wartung;
+					player.sendMessage("Wartungsstatus: " + _wartung);
+			}
 		}
 		return false;
 	}
