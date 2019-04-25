@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
-public class Main extends JavaPlugin implements Listener {
+public class Main extends JavaPlugin implements CommandExecutor, Listener {
 
 	private boolean _wartung = false;
 
