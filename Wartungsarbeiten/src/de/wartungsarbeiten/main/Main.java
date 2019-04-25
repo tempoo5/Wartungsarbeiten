@@ -24,7 +24,7 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void LogIn(PlayerLoginEvent e) {
 		if(e.getPlayer().isOp() == false && _wartung) {
-			e.disallow(null, "�4WARTUNGSARBEITEN \n �cmomentan wird der Server gewartet");
+			e.disallow(null, "§4WARTUNGSARBEITEN \n §cmomentan wird der Server gewartet");
 		}
 	}
 
