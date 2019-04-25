@@ -27,7 +27,11 @@ public class Main extends JavaPlugin implements Listener {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
-			if(player.isOp()) _wartung = true;
+			if(player.isOp())
+			{
+				 _wartung = !_wartung;
+				 player.sendMessage("Wartungsstatus: " + _wartung);
+			}
 		}
 		return false;
 	}
