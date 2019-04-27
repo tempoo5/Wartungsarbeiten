@@ -23,20 +23,23 @@ public class Main extends JavaPlugin implements CommandExecutor, Listener {
 
 	@EventHandler
 	public void LogIn(PlayerLoginEvent e) {
-		if(e.getPlayer().isOp() == false && _wartung) {
+		if(!e.getPlayer().isOp() && _wartung) {
 			e.disallow(null, "§4WARTUNGSARBEITEN \n §cmomentan wird der Server gewartet");
 		}
 	}
 
 
-	@EventHandler
+	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
 			if(player.isOp())
 			{
-					_wartung = !_wartung;
-					player.sendMessage("Wartungsstatus: " + _wartung);
+				_wartung = !_wartung;
+				var status = "";
+				if(_wartung) status = "ein";
+				else status = "aus";
+				player.sendMessage("Wartungsstatus: " + status);
 			}
 		}
 		return false;
